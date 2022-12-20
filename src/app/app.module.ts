@@ -18,6 +18,7 @@ import { LoginComponent } from './components/login/login.component';
 import { ForgetPasswordComponent } from './components/forget-password/forget-password.component';
 import { ResetComponent } from './components/reset/reset.component';
 import { HomeComponent } from './components/home/home.component';
+import { DisplayBooksComponent } from './components/display-books/display-books.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { HomeComponent } from './components/home/home.component';
     LoginComponent,
     ForgetPasswordComponent,
     ResetComponent,
-    HomeComponent
+    HomeComponent,
+    DisplayBooksComponent
   ],
   imports: [
     BrowserModule,
