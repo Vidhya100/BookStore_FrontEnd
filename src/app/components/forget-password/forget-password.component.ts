@@ -9,7 +9,6 @@ import { UserService } from 'src/app/services/userServices/user.service';
 })
 export class ForgetPasswordComponent {
   forgotForm! : FormGroup;
-
   submitted = false;
   constructor(private form:FormBuilder,private user: UserService){}
 
@@ -20,22 +19,24 @@ export class ForgetPasswordComponent {
     
   }
 
+  get f() { return this.forgotForm.controls; }
+
+  onSubmit() {
+    this.submitted = true;
   
-
-onSubmit() {
-  this.submitted = true;
-
-  // stop here if form is invalid
-  if (this.forgotForm.valid) {
-    let payload = {
-      emailId : this.forgotForm.value.email
-      
+    // stop here if form is invalid
+    if (this.forgotForm.valid) {
+      let payload = {
+        email: this.forgotForm.value.email,
+        service : "advance" 
+      }
+      //this.token = this.activeRoute.snapshot.paramMap.get('taken');
+      console.log(payload);
+       this.user.forgetPassword(payload).subscribe((response:any)=>{
+        console.log(response)
+        //added for storing token locally
+        localStorage.setItem("token",response.data)
+      })
     }
-     //this.user.ForgetPassword(payload).subscribe((response:any)=>{
-     // console.log(response)
-
-      //localStorage.setItem("token",response.data)
-    //})
   }
-}
 }

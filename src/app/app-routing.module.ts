@@ -3,11 +3,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { ForgetPasswordComponent } from './components/forget-password/forget-password.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterLoginComponent } from './components/register-login/register-login.component';
+import { ResetComponent } from './components/reset/reset.component';
 
 const routes: Routes = [
   {path : 'registerLogin' , component: RegisterLoginComponent},
   {path : 'login' , component: LoginComponent},
-  {path : 'forgetpassword' , component: ForgetPasswordComponent}
+  {path : 'forgetPassword' , component: ForgetPasswordComponent},
+  {path : 'resetPassword' , component: ResetComponent}
 ];
 
 @NgModule({

@@ -108,11 +108,12 @@ mat-error {
     justify-content: flex-end;
     padding:-10px;
   }
-  .btn-forgot{
-    border: transparent;
-    background-color: transparent;
-    
-  }
+  .forget-link{
+    //margin-top: -10px; 
+    color: #9D9D9D;
+    padding-top: 5px;
+    font-size: 11px;
+}
   
   .btn-facebook{
     padding: 15px 10px 15px 10px;

@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
+import { UserService } from 'src/app/services/userServices/user.service';
 
 @Component({
   selector: 'app-login',
@@ -10,16 +13,36 @@ export class LoginComponent {
   loginForm! : FormGroup
   hide = true;
   submitted = false;
-  constructor(private form:FormBuilder){}
+  constructor(private form:FormBuilder,private user: UserService, private router: Router,private _snackBar: MatSnackBar){}
 
   ngOnInit(): void {
     this.loginForm = this.form.group({
       email:['',[Validators.required,Validators.email]],
-      password:['', Validators.required,Validators.minLength(8)],
+      password:['', [Validators.required,Validators.minLength(8)]],
     })
   }
 
-  onSubmit(){
-    this.submitted = true;
+  get f() { return this.loginForm.controls; }
+
+onSubmit() {
+  this.submitted = true;
+
+  // stop here if form is invalid
+  if (this.loginForm.valid) {
+      let payload = {
+        EmailId: this.loginForm.value.email,
+        Password: this.loginForm.value.password,
+        service : "advance" 
+      }
+
+       this.user.login(payload).subscribe((response:any)=>{
+        console.log(response)
+         //added for storing token locally
+        localStorage.setItem("token",response.data)
+
+      // this.router.navigateByUrl('/dashboard/get-all-notes')
+      })
   }
+  let snackBarRef = this._snackBar.open('Logged in succesfully','',{duration:2000});
+}
 }

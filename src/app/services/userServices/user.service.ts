@@ -7,9 +7,7 @@ import { HttpService } from '../httpServices/http.service';
 })
 export class UserService {
   token : any;
-  constructor(private httpService : HttpService) {}
-
-  
+  constructor(private httpService : HttpService) {}  
   
   register(reqdata:any){
     let header = {
@@ -20,5 +18,27 @@ export class UserService {
         })
     }
     return this.httpService.postService('/User/Register',reqdata,false,header)
+  }
+
+  login(reqdata:any){
+    let header = {
+      headers: new HttpHeaders(
+        {
+          'Content-type' : 'application/json' ,
+          //Authorization : 'token' 
+        })
+    }
+    return this.httpService.postService('/User/Login',reqdata,false,header)
+  }
+
+  forgetPassword(reqdata:any){
+    let header = {
+      headers: new HttpHeaders(
+        {
+          'Content-type' : 'application/json' ,
+          //Authorization : 'token' 
+        })
+    }
+    return this.httpService.postService('/User/ForgetPasword?email='+(reqdata.email),reqdata,false,header)
   }
 }

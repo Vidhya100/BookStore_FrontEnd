@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { UserService } from 'src/app/services/userServices/user.service';
 
 @Component({
@@ -14,7 +15,7 @@ export class RegisterLoginComponent {
   submitted = false;
   
   
-  constructor(private form:FormBuilder,private user: UserService){}
+  constructor(private form:FormBuilder,private user: UserService,private _snackBar: MatSnackBar){}
 
   ngOnInit(): void {
     this.signupForm = this.form.group({
@@ -37,7 +38,8 @@ onSubmit() {
       FullName: this.signupForm.value.fullname,
       EmailId: this.signupForm.value.email,
       Password: this.signupForm.value.password,
-      MobileNumber: this.signupForm.value.mobile,
+
+      MobileNumber: Number(this.signupForm.value.mobile),
       
     }
      this.user.register(payload).subscribe((response:any)=>{
@@ -46,5 +48,6 @@ onSubmit() {
       localStorage.setItem("token",response.data)
     })
   }
+  let snackBarRef = this._snackBar.open('Registered successfully','',{duration:2000});
 }
 }
