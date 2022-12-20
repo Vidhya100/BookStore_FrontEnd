@@ -1,7 +1,4 @@
-mat-icon {
-    height: 12px;
-    width: 14px;
-}
+
 
 mat-error {
     height: 17px;
@@ -107,12 +104,14 @@ mat-error {
     display: flex;
     justify-content: flex-end;
     padding:-10px;
+    
   }
   .forget-link{
     //margin-top: -10px; 
     color: #9D9D9D;
-    padding-top: 5px;
-    font-size: 11px;
+    padding-top: 18px;
+    font-size: 12px;
+    cursor: pointer;
 }
   
   .btn-facebook{
@@ -146,4 +145,8 @@ mat-error {
   }
   .password{
     height:42px;
+  }
+  input .emailInput{
+    height: 37px;
+    width:292px;
   }
