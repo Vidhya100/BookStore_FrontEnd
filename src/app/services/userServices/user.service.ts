@@ -47,7 +47,7 @@ export class UserService {
       header: new HttpHeaders(
         {
           'Content-type' : 'application/json' ,
-          Authorization : 'token' 
+           'Authorization' : 'token' 
         })
     }
     return this.httpService.putService('/User/ResetPassword',reqdata,true,header)

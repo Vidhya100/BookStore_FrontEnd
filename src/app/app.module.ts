@@ -18,7 +18,8 @@ import { LoginComponent } from './components/login/login.component';
 import { ForgetPasswordComponent } from './components/forget-password/forget-password.component';
 import { ResetComponent } from './components/reset/reset.component';
 import { HomeComponent } from './components/home/home.component';
-import { DisplayBooksComponent } from './components/display-books/display-books.component';
+import { DisplayBookComponent } from './components/display-book/display-book.component';
+import { GetAllBooksComponent } from './components/get-all-books/get-all-books.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { DisplayBooksComponent } from './components/display-books/display-books.
     ForgetPasswordComponent,
     ResetComponent,
     HomeComponent,
-    DisplayBooksComponent
+    DisplayBookComponent,
+    GetAllBooksComponent
   ],
   imports: [
     BrowserModule,

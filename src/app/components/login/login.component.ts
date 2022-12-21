@@ -37,10 +37,11 @@ onSubmit() {
 
        this.user.login(payload).subscribe((response:any)=>{
         console.log(response)
+
          //added for storing token locally
         localStorage.setItem("token",response.data)
 
-      // this.router.navigateByUrl('/dashboard/get-all-notes')
+       this.router.navigateByUrl('/dashboard/get-all-books')
       })
   }
   let snackBarRef = this._snackBar.open('Logged in succesfully','',{duration:2000});

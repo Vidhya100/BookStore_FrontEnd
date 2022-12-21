@@ -48,13 +48,13 @@
             <div class="mobileNumber" fxLayout="column" fxLayoutAlign="start start">
                 <mat-label>Mobile Number</mat-label>
                 <mat-form-field appearance="outline">
-                    <input matInput type="email" formControlName="mobile" style="height:35px;width:252px;">
+                    <input matInput type="number" formControlName="mobile" matInput placeholder="" style="height:35px;width:252px;">
                     <mat-error>Enter valid mobile number</mat-error>
                 </mat-form-field>
             </div>
 
-            <button mat-raised-button type="submit" class="btn-primary"
-                style="background-color: #A03037;" routerLink="/login">Signup</button>
+            <button mat-button type="submit" class="btn-primary"
+                style="background-color: #A03037;" >Signup</button>
         </form>
     </div>
 </div>

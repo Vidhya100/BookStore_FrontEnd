@@ -45,7 +45,7 @@ onSubmit() {
      this.user.register(payload).subscribe((response:any)=>{
       console.log(response)
 
-      localStorage.setItem("token",response.data)
+      //localStorage.setItem("token",response.data)
     })
   }
   let snackBarRef = this._snackBar.open('Registered successfully','',{duration:2000});
