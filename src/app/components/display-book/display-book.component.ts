@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { BookService } from 'src/app/services/bookService/book.service';
 
 @Component({
@@ -8,7 +8,7 @@ import { BookService } from 'src/app/services/bookService/book.service';
 })
 export class DisplayBookComponent implements OnInit {
 
-  bookList:any;
+  @Input() bookList:any;
   totalbooks:any;
   sortBy:any='Sort by relevance';
 
