@@ -11,6 +11,8 @@ import {MatInputModule} from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatSelectModule} from '@angular/material/select';
+import {MatCardModule} from '@angular/material/card';
 
 import { AppComponent } from './app.component';
 import { RegisterLoginComponent } from './components/register-login/register-login.component';
@@ -18,8 +20,9 @@ import { LoginComponent } from './components/login/login.component';
 import { ForgetPasswordComponent } from './components/forget-password/forget-password.component';
 import { ResetComponent } from './components/reset/reset.component';
 import { HomeComponent } from './components/home/home.component';
-import { DisplayBookComponent } from './components/display-book/display-book.component';
 import { GetAllBooksComponent } from './components/get-all-books/get-all-books.component';
+import { DisplayBookComponent } from './components/display-book/display-book.component';
+
 
 @NgModule({
   declarations: [
@@ -29,8 +32,9 @@ import { GetAllBooksComponent } from './components/get-all-books/get-all-books.c
     ForgetPasswordComponent,
     ResetComponent,
     HomeComponent,
-    DisplayBookComponent,
-    GetAllBooksComponent
+    GetAllBooksComponent,
+    DisplayBookComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -43,7 +47,9 @@ import { GetAllBooksComponent } from './components/get-all-books/get-all-books.c
     MatInputModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatSelectModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

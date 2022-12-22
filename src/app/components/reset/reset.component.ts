@@ -57,7 +57,7 @@ onSubmit() {
 
       //localStorage.setItem("token",response.data)
 
-      this.router.navigateByUrl('login')
+      //this.router.navigateByUrl('login')
     })
     let snackBarRef = this._snackBar.open('Password Changed','',{duration:2000});
   }

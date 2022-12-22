@@ -41,7 +41,7 @@ onSubmit() {
          //added for storing token locally
         localStorage.setItem("token",response.data)
 
-       this.router.navigateByUrl('/dashboard/get-all-books')
+       this.router.navigateByUrl('/dashboard/getAllBooks')
       })
   }
   let snackBarRef = this._snackBar.open('Logged in succesfully','',{duration:2000});

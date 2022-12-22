@@ -1,13 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { BookService } from 'src/app/services/bookService/book.service';
 
 @Component({
   selector: 'app-display-book',
   templateUrl: './display-book.component.html',
   styleUrls: ['./display-book.component.scss']
 })
-export class DisplayBookComponent {
-   BookList: any;
-  notesArray:any;
-  message:any;
-  msg:any;
+export class DisplayBookComponent implements OnInit {
+
+  bookList:any;
+  totalbooks:any;
+  sortBy:any='Sort by relevance';
+
+  constructor(private book:BookService){}
+
+  ngOnInit(): void {
+    
+  
+    
+  }
+  
 }
