@@ -22,16 +22,15 @@
 
             <div class="book-image" fxLayout="column" fxLayoutAlign="center center"
               [style.background]="book.BookQuantity==0? '#dee2e6' : '#F5F5F5'">
-              <span class="bookName">{{book.bookImg}}</span>
-              <span class="outOfStock" *ngIf="book.bookQuantity == 0">OUT OF STOCK</span>
-              <span class="quickView" *ngIf="book.bookQuantity!=0">QUICK VIEW</span>
+              <img [src]="book.bookImage" height="120px" weight="170px">
+              <span class="outOfStock" *ngIf="book.bookQuantity == 0">OUT OF STOCK</span>              
             </div>
 
             <div class="book-details" fxLayout="column" fxLayoutAlign="start start">
                 <span class="bookName">{{book.bookName}}</span>
                 <span class="authorName">by {{book.authorName}}</span>
 
-                <div fxLayout="row" fxLayoutAlign="center center" style="    margin-bottom: 3px;">
+                <div fxLayout="row" fxLayoutAlign="center center" style="margin-bottom: 3px;">
 
                   <div class="rating" fxLayout="row" fxLayoutAlign="center center">
                     <span fxLayoutAlign="center center" style="padding-top: 2px; margin-right: 2px;">{{book.rating}}</span>
@@ -45,7 +44,7 @@
                 <div fxLayout="row">
                   <span class="discountPrice">Rs. {{book.discountPrice}}</span>
                   <span class="originalPrice">Rs. {{book.originalPrice}}</span>
-                  <span class="discount">{{((book.originalPrice-book.discountPrice)/book.originalPrice)*100 | number:'1.1-1'}}%
+                  <span class="discount">{{((book.originalPrice-book.discountPrice)/book.originalPrice)*100 }}%
                     off</span>
                 </div>
 
