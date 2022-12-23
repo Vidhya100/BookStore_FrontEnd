@@ -8,7 +8,7 @@ import { BookService } from 'src/app/services/bookService/book.service';
 })
 export class DisplayBookComponent implements OnInit {
 
-  @Input() bookList:any;
+  @Input()  bookList:any;
   totalbooks:any;
   sortBy:any='Sort by relevance';
 
