@@ -10,19 +10,19 @@
         <mat-label>{{sortBy}}</mat-label>
         <mat-select>
           <mat-option >Sort by relevence</mat-option>
-          <mat-option >Price -- Low to High</mat-option>
-          <mat-option >Price -- High to low</mat-option>
+          <mat-option >Price - Low to High</mat-option>
+          <mat-option >Price - High to low</mat-option>
           <mat-option >Newest First</mat-option>
         </mat-select>
       </mat-form-field>
     </div>
     
     <div class="display-books" fxLayout="row" fxLayoutAlign="start start">
-        <mat-card class="book" *ngFor="let book of bookList">
+        <mat-card class="book" *ngFor="let book of bookList" >
 
             <div class="book-image" fxLayout="column" fxLayoutAlign="center center"
               [style.background]="book.BookQuantity==0? '#dee2e6' : '#F5F5F5'">
-              <img [src]="book.bookImage" height="120px" weight="170px">
+              <img [src]="book.bookImage" class="bookImg" height="135px" width="105px">
               <span class="outOfStock" *ngIf="book.bookQuantity == 0">OUT OF STOCK</span>              
             </div>
 
@@ -43,9 +43,8 @@
 
                 <div fxLayout="row">
                   <span class="discountPrice">Rs. {{book.discountPrice}}</span>
-                  <span class="originalPrice">Rs. {{book.originalPrice}}</span>
-                  <span class="discount">{{((book.originalPrice-book.discountPrice)/book.originalPrice)*100 }}%
-                    off</span>
+                  <span class="originalPrice"><del>Rs. {{book.originalPrice}}</del></span>
+                  
                 </div>
 
             </div>
