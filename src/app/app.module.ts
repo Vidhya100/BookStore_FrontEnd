@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatSelectModule} from '@angular/material/select';
 import {MatCardModule} from '@angular/material/card';
+import {MatDividerModule} from '@angular/material/divider';
 
 import { AppComponent } from './app.component';
 import { RegisterLoginComponent } from './components/register-login/register-login.component';
@@ -22,6 +23,7 @@ import { ResetComponent } from './components/reset/reset.component';
 import { HomeComponent } from './components/home/home.component';
 import { GetAllBooksComponent } from './components/get-all-books/get-all-books.component';
 import { DisplayBookComponent } from './components/display-book/display-book.component';
+import { QuickViewComponent } from './components/quick-view/quick-view.component';
 
 
 @NgModule({
@@ -33,7 +35,8 @@ import { DisplayBookComponent } from './components/display-book/display-book.com
     ResetComponent,
     HomeComponent,
     GetAllBooksComponent,
-    DisplayBookComponent
+    DisplayBookComponent,
+    QuickViewComponent
     
   ],
   imports: [
@@ -49,7 +52,8 @@ import { DisplayBookComponent } from './components/display-book/display-book.com
     HttpClientModule,
     MatSnackBarModule,
     MatSelectModule,
-    MatCardModule
+    MatCardModule,
+    MatDividerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
