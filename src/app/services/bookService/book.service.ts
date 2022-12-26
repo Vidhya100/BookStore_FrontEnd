@@ -19,7 +19,7 @@ export class BookService {
       headers: new HttpHeaders({
       
         'Content-Type' : 'application/json' ,
-        'Authorization' :'Bearer '+this.token 
+        //'Authorization' :'Bearer '+this.token 
       })
     }
     return this.httpService.getService('/Book/GetAllBooks', true, header)
@@ -33,6 +33,6 @@ export class BookService {
         'Content-Type' : 'application/json',
       })
     }
-    return this.httpService.getService('/GetbookbyId?bookId=' +bookId,true,header)
+    return this.httpService.getService('/Book/GetById?BookId=' +bookId,true,header)
   }
 }

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { BookService } from 'src/app/services/bookService/book.service';
 
 @Component({
@@ -9,26 +10,29 @@ import { BookService } from 'src/app/services/bookService/book.service';
 export class GetAllBooksComponent {
 
   token:any;
-  bookarray:any;
+  //bookarray:any;
+  bookList:any;
+  totalbooks:any;
+  sortBy:any='Sort by relevance';
 
-  constructor( private bookService: BookService ) {  }
+  constructor(private book:BookService, private router: Router ){}
 
   ngOnInit(): void {
-    this.getAllbooks()    
+    this.getAllbooks();    
   }
-
+  
   getAllbooks(){
-     this.bookService.getAllbooks().subscribe((request:any)=> {
+     this.book.getAllbooks().subscribe((request:any)=> {
       console.log("request data", request);
-      this.bookarray = request.data;
-      this.bookarray.reverse()
-      //this.notesArray = this.notesArray.filter((noteData: any) => {
-       // return this.noteData.trash == false && this.noteData.archive == false;
-      /* this.bookarray = this.notesArray.filter((notedata: any) => {
-        return notedata.trash === false && notedata.archive == false;*/
+      this.bookList = request.data;
+      this.bookList.reverse();
       
       })
     }
-
-   
+  quickView(bookId:any){
+      localStorage.setItem('bookId',bookId)
+      console.log(bookId);
+      
+      //this.router.navigateByUrl("/dashboard/quick-view");
+    }
 }
