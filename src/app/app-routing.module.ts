@@ -6,6 +6,7 @@ import { GetAllBooksComponent } from './components/get-all-books/get-all-books.c
 
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
+import { QuickViewComponent } from './components/quick-view/quick-view.component';
 
 import { RegisterLoginComponent } from './components/register-login/register-login.component';
 import { ResetComponent } from './components/reset/reset.component';
@@ -17,7 +18,9 @@ const routes: Routes = [
   {path : 'resetPassword' , component: ResetComponent},
   {path : 'dashboard' , component: HomeComponent,
   children:[
-    {path : 'getAllBooks' , component: GetAllBooksComponent}
+    {path: ' ', redirectTo:'dashboard', pathMatch:'full' },
+    {path : 'getAllBooks' , component: GetAllBooksComponent},
+    {path : 'quick-view' , component: QuickViewComponent}
   
   ]
 }

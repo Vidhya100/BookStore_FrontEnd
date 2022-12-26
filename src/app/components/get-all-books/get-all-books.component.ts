@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BookService } from 'src/app/services/bookService/book.service';
 
@@ -7,7 +7,7 @@ import { BookService } from 'src/app/services/bookService/book.service';
   templateUrl: './get-all-books.component.html',
   styleUrls: ['./get-all-books.component.scss']
 })
-export class GetAllBooksComponent {
+export class GetAllBooksComponent implements OnInit {
 
   token:any;
   //bookarray:any;
@@ -33,6 +33,6 @@ export class GetAllBooksComponent {
       localStorage.setItem('bookId',bookId)
       console.log(bookId);
       
-      //this.router.navigateByUrl("/dashboard/quick-view");
+      this.router.navigateByUrl("/dashboard/quick-view");
     }
 }

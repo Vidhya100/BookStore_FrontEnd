@@ -22,6 +22,7 @@ import { ForgetPasswordComponent } from './components/forget-password/forget-pas
 import { ResetComponent } from './components/reset/reset.component';
 import { HomeComponent } from './components/home/home.component';
 import { GetAllBooksComponent } from './components/get-all-books/get-all-books.component';
+import { QuickViewComponent } from './components/quick-view/quick-view.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { GetAllBooksComponent } from './components/get-all-books/get-all-books.c
     ForgetPasswordComponent,
     ResetComponent,
     HomeComponent,
-    GetAllBooksComponent
+    GetAllBooksComponent,
+    QuickViewComponent
     
   ],
   imports: [
