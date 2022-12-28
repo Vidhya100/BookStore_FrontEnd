@@ -21,4 +21,14 @@ export class FeedbackService {
     }
     return this.http.getService(`/FeedBack/Getfeedback?bookId=` +bookId,false,header)
   }
+
+  addFeedback(reqdata:any){
+    let header = {
+      headers: new HttpHeaders({
+        'Content-type': 'application/json',
+        'Authorization': 'Bearer '+this.token
+      })
+    }
+    return this.http.postService('/FeedBack/Addfeedback', reqdata, true, header);
+  }
 }

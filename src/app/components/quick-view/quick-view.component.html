@@ -71,7 +71,7 @@
         <textarea type="text" matInput placeholder="Write your review"  [(ngModel)]="comment" style="overflow: hidden; resize: none !important; word-wrap: break-word; 
           padding: 5px; margin: 10px 0px; background: white; border-radius: 2px;" cdkTextareaAutosize cdkAutosizeMinRows="3" cdkAutosizeMaxRows="25"></textarea>
         <div fxLayoutAlign="end center" style="padding: 5px ;">
-          <button mat-flat-button color="primary" class="submit">Submit</button>
+          <button mat-flat-button color="primary" class="submit" (click)="addFeedback">Submit</button>
         </div>
       </div>
 

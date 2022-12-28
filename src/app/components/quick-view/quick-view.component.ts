@@ -40,4 +40,18 @@ export class QuickViewComponent implements OnInit{
       this.feedbackList = response.data;
     });
   }
+
+  addFeedback(){
+    let reqData = {
+      Rating: parseInt(this.ratingPoint),
+      Comment: this.comment,
+      BookId: this.book.bookId
+    }
+    this.feedback.addFeedback(reqData).subscribe((response: any) => {
+      console.log("Feedback submitted successfully", response);
+      this.getAllFeedback(this.bookId);
+    });
+    this.comment='';
+    this.ratingPoint=0;
+  }
 }
