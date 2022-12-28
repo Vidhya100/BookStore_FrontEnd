@@ -9,6 +9,7 @@ import { BookService } from 'src/app/services/bookService/book.service';
 })
 export class GetAllBooksComponent implements OnInit {
 
+  searchbook:any;
   token:any;
   //bookarray:any;
   bookList:any;
@@ -18,21 +19,26 @@ export class GetAllBooksComponent implements OnInit {
   constructor(private book:BookService, private router: Router ){}
 
   ngOnInit(): void {
-    this.getAllbooks();    
+    this.getAllbooks();  
+   // this.data.incomingData.subscribe((response) => {
+      //this.searchbook = response;
+   // })  
   }
   
   getAllbooks(){
-     this.book.getAllbooks().subscribe((request:any)=> {
-      console.log("request data", request);
-      this.bookList = request.data;
-      this.bookList.reverse();
+     this.book.getAllbooks().subscribe((response:any)=> {
+      console.log( response);
+      this.bookList = response.data;
+      //this.bookList.reverse();
+      console.log("List: ",this.bookList);
       
       })
     }
   quickView(bookId:any){
+    this.router.navigateByUrl("/quickView");
       localStorage.setItem('bookId',bookId)
       console.log(bookId);
       
-      this.router.navigateByUrl("/dashboard/quick-view");
+      
     }
 }

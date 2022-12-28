@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { BookService } from 'src/app/services/bookService/book.service';
+import { FeedbackService } from 'src/app/services/feedback/feedback.service';
 
 @Component({
   selector: 'app-quick-view',
@@ -8,22 +9,35 @@ import { BookService } from 'src/app/services/bookService/book.service';
 })
 export class QuickViewComponent implements OnInit{
 
-  bookId:any;
+  bookId = localStorage.getItem('bookId')
+  //bookId:any;
   book:any;
+  ratingPoint:any=0;
+  comment:any;
+  feedbackList:any;
+  addedToCart:any=false;
 
-  constructor(private bookService: BookService) { }
+  constructor(private bookservice:BookService,private feedback: FeedbackService) { }
 
   ngOnInit(): void {
     //this.bookId = this.activate.snapshot.paramMap.get('bookId');
     this.bookId = localStorage.getItem('bookId')
-    console.log(this.bookId);
     this.getBookById(this.bookId);
-    
+    this.getAllFeedback(this.bookId);
   }
 
   getBookById(bookId:any){
-    this.bookService.getBookById(bookId).subscribe((response: any) => {
-      this.book = response.data;
+    this.bookservice.getBookById(bookId).subscribe((response: any) => {
+      console.log(response);
+      this.book = response.response;
+      console.log(response.response);
+    });
+  }
+
+  getAllFeedback(bookId: any){
+    this.feedback.getAllFeedback(bookId).subscribe((response: any) => {
+      console.log(response);
+      this.feedbackList = response.data;
     });
   }
 }

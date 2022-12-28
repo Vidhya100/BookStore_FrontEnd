@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ForgetPasswordComponent } from './components/forget-password/forget-password.component';
 import { GetAllBooksComponent } from './components/get-all-books/get-all-books.component';
+import { GetBookComponent } from './components/get-book/get-book.component';
 
 
 import { HomeComponent } from './components/home/home.component';
@@ -16,11 +17,13 @@ const routes: Routes = [
   {path : 'login' , component: LoginComponent},
   {path : 'forgetPassword' , component: ForgetPasswordComponent},
   {path : 'resetPassword' , component: ResetComponent},
+  {path : 'quickView' , component: QuickViewComponent},
   {path : 'dashboard' , component: HomeComponent,
   children:[
-    {path: ' ', redirectTo:'dashboard', pathMatch:'full' },
+    {path:'', redirectTo:'dashboard', pathMatch:'full'},
     {path : 'getAllBooks' , component: GetAllBooksComponent},
-    {path : 'quick-view' , component: QuickViewComponent}
+    //{path : 'quickView' , component: QuickViewComponent}
+    
   
   ]
 }

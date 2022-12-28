@@ -23,6 +23,7 @@ import { ResetComponent } from './components/reset/reset.component';
 import { HomeComponent } from './components/home/home.component';
 import { GetAllBooksComponent } from './components/get-all-books/get-all-books.component';
 import { QuickViewComponent } from './components/quick-view/quick-view.component';
+import { GetBookComponent } from './components/get-book/get-book.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { QuickViewComponent } from './components/quick-view/quick-view.component
     ResetComponent,
     HomeComponent,
     GetAllBooksComponent,
-    QuickViewComponent
+    QuickViewComponent,
+    GetBookComponent
     
   ],
   imports: [
