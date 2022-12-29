@@ -14,6 +14,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatSelectModule} from '@angular/material/select';
 import {MatCardModule} from '@angular/material/card';
 import {MatDividerModule} from '@angular/material/divider';
+import {MatMenuModule} from '@angular/material/menu';
 
 import { AppComponent } from './app.component';
 import { RegisterLoginComponent } from './components/register-login/register-login.component';
@@ -24,6 +25,8 @@ import { HomeComponent } from './components/home/home.component';
 import { GetAllBooksComponent } from './components/get-all-books/get-all-books.component';
 import { QuickViewComponent } from './components/quick-view/quick-view.component';
 import { GetBookComponent } from './components/get-book/get-book.component';
+import { CartComponent } from './components/cart/cart.component';
+import { WishlistComponent } from './components/wishlist/wishlist.component';
 
 
 @NgModule({
@@ -36,7 +39,9 @@ import { GetBookComponent } from './components/get-book/get-book.component';
     HomeComponent,
     GetAllBooksComponent,
     QuickViewComponent,
-    GetBookComponent
+    GetBookComponent,
+    CartComponent,
+    WishlistComponent
     
   ],
   imports: [
@@ -53,7 +58,8 @@ import { GetBookComponent } from './components/get-book/get-book.component';
     MatSnackBarModule,
     MatSelectModule,
     MatCardModule,
-    MatDividerModule
+    MatDividerModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]
