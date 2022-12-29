@@ -1,43 +1,103 @@
-<div class="container">
-
-    <div class="header" fxLayout="row" fxLayoutAlign="start center">
-
-        <div class="logo">
-          <img src="../../../assets/education.png" routerLink="/home">
-        </div>
-
-        <div class="logo-name">
-          <span class="text" routerLink="/home">Bookstore</span>
-        </div>
-
-        <div class="search">
-            <img class="search-img" src="../../../assets/search-img.png">
-            <input class="search-input" type="text" placeholder="Search..." >
-        </div>
-
-        <div class="profile-cart" fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="80px">
-
-            <div class="profile" fxLayout="column" fxLayoutAlign="center center">
-                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000">
-                    <path d="M0 0h24v24H0z" fill="none"/>
-                    <path fill="#878787" d="M12 5.9c1.16 0 2.1.94 2.1 2.1s-.94 2.1-2.1 2.1S9.9 9.16 9.9 8s.94-2.1 2.1-2.1m0 9c2.97 0
-                     6.1 1.46 6.1 2.1v1.1H5.9V17c0-.64 3.13-2.1 6.1-2.1M12 4C9.79 4 8 5.79 8 8s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm0 
-                     9c-2.67 0-8 1.34-8 4v3h16v-3c0-2.66-5.33-4-8-4z"/>
-                </svg>
-                <p class="label">Profile</p>
+<div class="main-container" fxLayout="column">
+    <mat-toolbar class="color" fxLayoutAlign="space-between center">
+        <div class="header" fxLayout="row" fxLayoutAlign="start center">
+            <div class="logo">
+                <img src="../../../assets/education.png" (click)="home()">
+            </div>
+            <div class="logo-name" (click)="home()">
+                <span class="text">Bookstore</span>
             </div>
 
-            <div class="cart">
-                <img class="cart-img" src="../../../assets/supermarket.svg">
-                <p class="label">Cart</p>
+            <div class="search">
+                <img src="../../../assets/search-img.png">
+                <input class="search-input" type="text" placeholder="Search..." (keyup)="searchTitle($event)">
+            </div>
+
+            <div class="profile-cart" fxLayout="row" style=" background-color: #A03037;" fxLayoutGap="80px">
+                <button class="icons" mat-button style=" background-color: #A03037;">
+                    <button fxLayout="column" fxLayoutAlign="center center" style=" text-color:white"
+                        [matMenuTriggerFor]="fullName==(''||undefined)? noprofile : profile" style=" text-color:white">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px"
+                            fill="#000000">
+                            <path d="M0 0h24v24H0z" fill="none" />
+                            <path fill="#878787" d="M12 5.9c1.16 0 2.1.94 2.1 2.1s-.94 2.1-2.1 2.1S9.9 9.16 9.9 8s.94-2.1 2.1-2.1m0 9c2.97 0
+                             6.1 1.46 6.1 2.1v1.1H5.9V17c0-.64 3.13-2.1 6.1-2.1M12 4C9.79 4 8 5.79 8 8s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm0 
+                             9c-2.67 0-8 1.34-8 4v3h16v-3c0-2.66-5.33-4-8-4z" />
+                        </svg>
+                        <span fxLayoutAlign="center center">Profile</span>
+                    </button>
+                    <mat-menu #profile="matMenu">
+
+                        <button mat-menu-item class="profile-g" style="padding-left: 0px;">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px"
+                                fill="#000000">
+                                <path d="M0 0h24v24H0z" fill="none" />
+                                <path fill="#878787" d="M12 5.9c1.16 0 2.1.94 2.1 2.1s-.94 2.1-2.1 2.1S9.9 9.16 9.9 8s.94-2.1 2.1-2.1m0 9c2.97 0
+                                 6.1 1.46 6.1 2.1v1.1H5.9V17c0-.64 3.13-2.1 6.1-2.1M12 4C9.79 4 8 5.79 8 8s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm0 
+                                 9c-2.67 0-8 1.34-8 4v3h16v-3c0-2.66-5.33-4-8-4z" />
+                            </svg>
+                        </button>
+
+                        <button mat-menu-item class="profile-g" style="padding-left: 0px;"
+                            routerLink="/dashboard/orders">
+                            <img width="18px" height="18px"><span>My
+                                Orders</span>
+                        </button>
+                        <button mat-menu-item class="profile-g" style="padding-left: 0px;"
+                            routerLink="/dashboard/wishlist">
+                            <img src="../../../assets/favourite.png" width="20px" height="20px"><span>My
+                                Wishlist</span>
+                        </button>
+                        <button mat-menu-item class="logout" color="warn" style="margin-right: 50px;"
+                            (click)="logOut()">Logout
+                        </button>
+                    </mat-menu>
+                    <mat-menu #noprofile="matMenu">
+                        <span class="profile"><b>Welcome</b></span>
+                        <div class="profile-g"><span>To acsess account and manage orders</span></div>
+                        <button class="login" mat-stroked-button color="warn" routerLink="/login">LOGIN/SIGNUP</button>
+                        <hr class="profile-g">
+                        <button mat-menu-item class="profile-g" style="padding-left: 0px;">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px"
+                                fill="#000000">
+                                <path d="M0 0h24v24H0z" fill="none" />
+                                <path fill="#878787" d="M12 5.9c1.16 0 2.1.94 2.1 2.1s-.94 2.1-2.1 2.1S9.9 9.16 9.9 8s.94-2.1 2.1-2.1m0 9c2.97 0
+                                 6.1 1.46 6.1 2.1v1.1H5.9V17c0-.64 3.13-2.1 6.1-2.1M12 4C9.79 4 8 5.79 8 8s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm0 
+                                 9c-2.67 0-8 1.34-8 4v3h16v-3c0-2.66-5.33-4-8-4z" />
+                            </svg>
+                            <span>My Orders</span>
+                        </button>
+                        <button mat-menu-item class="profile-g" style="padding-left: 0px;">
+                            <img src="../../../assets/favorite-gray.svg" width="20px" height="20px">
+                            <span>My Wishlist</span>
+                        </button>
+                    </mat-menu>
+                    <span fxLayoutAlign="center center" *ngIf="fullName!=(''||undefined||null)">{{fullName}}</span>
+
+                </button>
+
+                <button class="icons" mat-menu-item routerLink="/dashboard/cart" *ngIf="fullName!=(''||undefined||null)"
+                    style=" background-color: #A03037;">
+                    <div fxLayout="column" fxLayoutAlign="center center">
+                        <img src="../../../assets/supermarket.svg" style="margin: 0px 10px;" width="24px" height="24px">
+                        <span fxLayoutAlign="center center">Cart</span>
+                    </div>
+                </button>
+                <button mat-menu-item class="icons" mat-flat-button *ngIf="fullName==(''||undefined||null)"
+                    [matMenuTriggerFor]="noprofile">
+                    <div fxLayout="column" fxLayoutAlign="center center">
+                        <img src="../../../assets/supermarket.svg" style="margin: 0px 10px;" width="24px" height="24px">
+                        <span fxLayoutAlign="center center">Cart</span>
+                    </div>
+                </button>
             </div>
         </div>
+    </mat-toolbar>
+
+    <div class="display-book">
+        <router-outlet></router-outlet>
     </div>
 
-    <div class="display-books">
-        <app-get-all-books></app-get-all-books>
-    </div>
-    
     <footer>
         <span>Copyright © 2022, Bookstore Private Limited. All Rights Reserved</span>
     </footer>
