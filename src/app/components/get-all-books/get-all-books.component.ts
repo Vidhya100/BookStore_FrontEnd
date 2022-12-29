@@ -35,7 +35,7 @@ export class GetAllBooksComponent implements OnInit {
       })
     }
   quickView(bookId:any){
-    this.router.navigateByUrl("/quickView");
+    this.router.navigateByUrl("/dashboard/quickView");
       localStorage.setItem('bookId',bookId)
       console.log(bookId);
       
