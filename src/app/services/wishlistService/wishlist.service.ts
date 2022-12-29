@@ -13,6 +13,16 @@ export class WishlistService {
     this.token = localStorage.getItem('token');
   }
 
+  getWishList(){
+    let header={
+      headers: new HttpHeaders({
+        'Content-Type' : 'application/json',
+        'Authorization': 'Bearer '+this.token
+      })
+    }
+    return this.http.getService('/Wishlist/GetFromWishlist',true,header)
+  }
+
   addToWishlist(reqData:any ,bookId:any){
     let header = {
       headers: new HttpHeaders({
@@ -20,6 +30,16 @@ export class WishlistService {
         'Authorization': 'Bearer '+this.token
       })
     }
-    return this.http.postService('/WishList/Addtowishlist?bookId='+bookId, reqData, true, header);
+    return this.http.postService('/Wishlist/AddToWishlist?bookId='+bookId, reqData, true, header);
+  }
+
+  removeFromWishlist(wishlistId:any){
+    let header={
+      headers: new HttpHeaders({
+        'Content-Type' : 'application/json',
+        'Authorization': 'Bearer '+this.token
+      })
+    }
+    return this.http.deleteService('/Wishlist/DeleteFromWishlist?wishlistId='+wishlistId,true,header)
   }
 }

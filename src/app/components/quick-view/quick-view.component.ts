@@ -64,7 +64,7 @@ export class QuickViewComponent implements OnInit{
       BookId: this.book.bookId,
       BookInCart: 1
     }
-    this.cart.addToCart(reqData).subscribe((response: any) => {
+    this.cart.addToCart(reqData,this.bookId).subscribe((response: any) => {
       console.log("Added to cart", response);
     });
   }
@@ -76,5 +76,8 @@ export class QuickViewComponent implements OnInit{
     this.wish.addToWishlist(reqData,this.bookId).subscribe((response: any) => {
       console.log("Added to wishlist", response);
     });
+
   }
+
+  
 }
