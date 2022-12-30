@@ -15,6 +15,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatCardModule} from '@angular/material/card';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatMenuModule,} from '@angular/material/menu';
+import {MatRadioModule} from '@angular/material/radio';
 
 import { AppComponent } from './app.component';
 import { RegisterLoginComponent } from './components/register-login/register-login.component';
@@ -28,6 +29,9 @@ import { GetBookComponent } from './components/get-book/get-book.component';
 import { CartComponent } from './components/cart/cart.component';
 import { WishlistComponent } from './components/wishlist/wishlist.component';
 import { MatButtonModule } from '@angular/material/button';
+import { OrderPlacedComponent } from './components/order-placed/order-placed.component';
+import { OrdersComponent } from './components/orders/orders.component';
+
 
 
 @NgModule({
@@ -42,7 +46,9 @@ import { MatButtonModule } from '@angular/material/button';
     QuickViewComponent,
     GetBookComponent,
     CartComponent,
-    WishlistComponent
+    WishlistComponent,
+    OrderPlacedComponent,
+    OrdersComponent
     
   ],
   imports: [
@@ -61,7 +67,8 @@ import { MatButtonModule } from '@angular/material/button';
     MatCardModule,
     MatDividerModule,
     MatMenuModule,
-    MatButtonModule
+    MatButtonModule,
+    MatRadioModule
   ],
   providers: [],
   bootstrap: [AppComponent]
