@@ -22,24 +22,25 @@ export class CartComponent {
 
    getCartlist() {
     this.cart.getCartItems().subscribe((response: any) => {
-      console.log("Got All cart items", response.data);
+      console.log(response.data);
       this.cartlist = response.data;
       console.log('BookIds : ', this.cartlist);
     });
   }
 
-  decreaseQty(cartId: any, bookQty: any) {
-    this.cart.updateCart(cartId, (bookQty - 1)).subscribe((response: any) => {
-      console.log("Cart Qty decreased",response);
+  decreaseQty(cartId: any, bookQuantity: any) {
+    console.log(bookQuantity);
+    this.cart.updateCart(cartId, (bookQuantity - 1)).subscribe((response: any) => {
+      console.log(response);
       this.getCartlist();
     })
   }
 
-  increaseQty(cartId: any, bookQty: any) 
+  increaseQty(cartId: any, BookQuantity: any) 
   {
-    console.log(bookQty);
-    this.cart.updateCart(cartId, (bookQty + 1)).subscribe((response: any) => {
-      console.log("Cart Qty increased",response);
+    console.log(BookQuantity);
+    this.cart.updateCart(cartId, (BookQuantity + 1)).subscribe((response: any) => {
+      console.log(response);
       this.getCartlist();
     })
   }

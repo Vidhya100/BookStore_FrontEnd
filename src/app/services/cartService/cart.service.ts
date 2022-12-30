@@ -33,15 +33,15 @@ export class CartService {
     return this.http.postService('/Cart/AddToCart?bookId='+bookId, reqData, true, header);
   }
 
-  updateCart(cartId: any, bookQty: any) {
-    console.log(cartId,bookQty);
+  updateCart(cartId: any, bookQuantity: any) {
+    console.log(cartId,bookQuantity);
     let header = {
       headers: new HttpHeaders({
         'Content-type': 'application/json',
-        'Authorization': 'Bearer ' + this.token
+        'Authorization': 'Bearer ' +this.token
       })
     }
-    return this.http.putService('/Cart/Updatecart?cartId='+cartId+'&bookQty='+bookQty,cartId,true,header);
+    return this.http.putService('/Cart/Updatecart?cartId='+cartId+'&bookQty='+bookQuantity,cartId,true,header);
   }
 
   removeFromCart(cartId: any) {

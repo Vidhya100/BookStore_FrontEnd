@@ -30,11 +30,11 @@
               <div><span class="originalPrice">Rs. {{cart?.originalPrice}}</span></div>
             </div>
             <div fxLayout="row" fxLayoutAlign="start center">
-              <button mat-stroked-button (click)="decreaseQty(cart.cartId, cart.bookQty)" 
-                [disabled]="cart.bookQty==1"><i class="material-icons">&#xe15b;</i></button>
-              <span class="cartQty">{{cart.bookQty}}</span>
-              <button mat-stroked-button (click)="increaseQty(cart.cartId, cart.bookQty)" 
-                [disabled]="cart.bookQty==4"><i class="material-icons">&#xe145;</i></button>
+              <button mat-stroked-button (click)="decreaseQty(cart.cartId, cart.bookQuantity)" 
+                [disabled]="cart.bookQuantity==1"><i class="material-icons">&#xe15b;</i></button>
+              <span class="cartQty">{{cart?.bookQuantity}}</span>
+              <button mat-stroked-button (click)="increaseQty(cart.cartId, cart.bookQuantity)" 
+                [disabled]="cart.bookQuantity==4"><i class="material-icons">&#xe145;</i></button>
               <button mat-stroked-button  style="margin-left: 25px;" (click)="removeFromCart(cart.cartId)"> Remove</button>
             </div>
           </div>
