@@ -1,6 +1,7 @@
 .main-container{
   height: 100%;
   width: 100%;
+  overflow-x: hidden;
 }
 .color{
   background-color:#A03037;
@@ -90,32 +91,36 @@ svg {
     padding: 0% 10%;
     padding-top: 15px;
     padding-bottom: 15px;
-    margin-top: auto;
+    margin-top: 5px;
+    position: fixed;
+    bottom: 0px;
+    
+  width: 100%;
   }
   // .display-book{
   //   margin: 10px 100px 0px 100px ;
   // }
 
 
-  .mat-form-field ::ng-deep .mat-form-field-wrapper{
-    margin-left: -40px;
-    padding-bottom: 5px;
-    width: 500px;
-  }
+  // .mat-form-field ::ng-deep .mat-form-field-wrapper{
+  //   margin-left: -40px;
+  //   padding-bottom: 5px;
+  //   width: 500px;
+  // }
   
-  ::ng-deep .mat-form-field-outline{
-    background-color:white;
-    border-radius: 5px;
-  }
-  ::ng-deep .mat-form-field-flex {
-    height: 40px !important;
-    margin-top: 0px !important;
-    align-items: center !important;
-    justify-content: center !important;
-  }
-  input.mat-input-element {
-    margin-bottom: 8px;
-  }
+  // ::ng-deep .mat-form-field-outline{
+  //   background-color:white;
+  //   border-radius: 5px;
+  // }
+  // ::ng-deep .mat-form-field-flex {
+  //   height: 40px !important;
+  //   margin-top: 0px !important;
+  //   align-items: center !important;
+  //   justify-content: center !important;
+  // }
+  // input.mat-input-element {
+  //   margin-bottom: 8px;
+  // }
   .icons{
     font-size: small;
     color: white;
@@ -177,14 +182,14 @@ svg {
     border: 1px solid #A03037;
     color: #A03037;
   }
-  .mat-toolbar-row, .mat-toolbar-single-row {
-    padding: 0 0px;
-    margin: 0px;
-  }
+  // .mat-toolbar-row, .mat-toolbar-single-row {
+  //   padding: 0 0px;
+  //   margin: 0px;
+  // }
   
   .profile-cart{
     padding-left: 300px;
   }
   .display-book{
-    margin: 10px 100px 0px 100px ;
+    margin: 10px 100px 45px 100px ;
   }
