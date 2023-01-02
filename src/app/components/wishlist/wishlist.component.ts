@@ -8,11 +8,13 @@ import { WishlistService } from 'src/app/services/wishlistService/wishlist.servi
 })
 export class WishlistComponent implements OnInit {
 
+  bookId = localStorage.getItem('bookId');
   wishlist:any;
  
   constructor(private wish: WishlistService) { }
 
   ngOnInit(): void {
+    
     this.getWishlist();
   }
  

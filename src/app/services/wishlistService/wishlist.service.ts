@@ -13,14 +13,14 @@ export class WishlistService {
     this.token = localStorage.getItem('token');
   }
 
-  getWishList(){
-    let header={
+  getWishList() {
+    let header = {
       headers: new HttpHeaders({
-        'Content-Type' : 'application/json',
-        'Authorization': 'Bearer '+this.token
+        'Content-type': 'application/json',
+        'Authorization': 'Bearer ' +this.token
       })
     }
-    return this.http.getService('/Wishlist/GetFromWishlist',true,header)
+    return this.http.getService('/Wishlist/GetFromWishlist', true, header);
   }
 
   addToWishlist(reqData:any ,bookId:any){
