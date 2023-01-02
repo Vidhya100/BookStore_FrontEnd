@@ -33,6 +33,7 @@ export class CartComponent {
   ngOnInit(): void {
     this.bookId = localStorage.getItem('bookId');
     this.getCartlist();
+    this.getAllAddress();
   }
 
    getCartlist() {
@@ -94,6 +95,53 @@ export class CartComponent {
         this.getCartlist();
         this.step=0;
         this.router.navigateByUrl('/dashboard/orderPlaced')
+      })
+    }
+  }
+
+  addNewAddress() {
+    this.isAddEditAddress = true;
+    this.addressObj = [];
+    this.address = '';
+    this.fullName = '';
+    this.mobileNumber = '';
+    this.city = '';
+    this.state = '';
+    this.addressType = '';
+  }
+
+  editAddress() {
+    this.edit = true;
+  }
+  
+  updateAddress(addressId: any) {
+    if (this.address && this.city && this.state && this.addressType && addressId != '') {
+      let reqData = {
+        address: this.address,
+        city: this.city,
+        state: this.state,
+        type: Number(this.addressType),
+        addressId: addressId
+      }
+      console.log(reqData)
+      this.addresss.updateAddress(reqData).subscribe((response: any) => {
+        console.log("Address updated successfully", response);
+        this.getAllAddress();
+      })
+    }
+  }
+
+  addAddress(){
+    if(this.address && this.city && this.state && this.addressType != ''){
+      let reqData = {
+        address: this.address,
+        city: this.city,
+        state: this.state,
+        type: Number(this.addressType)
+      }
+      this.address.addAddress(reqData).subscribe((response: any) => {
+        console.log("New Address Added successfully", response);
+        this.getAllAddress();
       })
     }
   }

@@ -20,4 +20,23 @@ export class AddressService {
     }
     return this.http.getService('/Address/Getalladdress', true, header);
   }
+  addAddress(reqData:any){
+    let header = {
+      headers: new HttpHeaders({
+        'Content-type': 'application/json',
+        'Authorization': 'Bearer '+this.token
+      })
+    }
+    return this.http.postService('/Addres/AddAddress', reqData, true, header);
+  }
+
+  updateAddress(reqData: any) {
+    let header = {
+      headers: new HttpHeaders({
+        'Content-type': 'application/json',
+        'Authorization': 'Bearer '+this.token
+      })
+    }
+    return this.http.putService('/Address/UpdateAddress', reqData, true, header);
+  }
 }
