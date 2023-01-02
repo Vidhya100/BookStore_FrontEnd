@@ -38,15 +38,13 @@
                             </svg>
                         </button>
 
-                        <button mat-menu-item class="profile-g" style="padding-left: 0px;"
-                            routerLink="/dashboard/orders">
-                            <img width="18px" height="18px"><span>My
-                                Orders</span>
+                        <button mat-menu-item class="profile-g" style="padding-left: 0px;" routerLink="/dashboard/orders">
+                            <img width="18px" height="18px">
+                            <span>My Orders</span>
                         </button>
-                        <button mat-menu-item class="profile-g" style="padding-left: 0px;"
-                            routerLink="/dashboard/wishlist">
-                            <img src="../../../assets/favourite.png" width="20px" height="20px"><span>My
-                                Wishlist</span>
+                        <button mat-menu-item class="profile-g" style="padding-left: 0px;" routerLink="/dashboard/wishlist">
+                            <img src="../../../assets/favourite.png" width="20px" height="20px">
+                            <span>My Wishlist</span>
                         </button>
                         <button mat-menu-item class="logout" color="warn" style="margin-right: 50px;"
                             (click)="logOut()">Logout
@@ -57,7 +55,7 @@
                         <div class="profile-g"><span>To acsess account and manage orders</span></div>
                         <button class="login" mat-stroked-button color="warn" routerLink="/login">LOGIN/SIGNUP</button>
                         <hr class="profile-g">
-                        <button mat-menu-item class="profile-g" style="padding-left: 0px;">
+                        <button mat-menu-item class="profile-g" style="padding-left: 0px;" routerLink="/dashboard/orders">
                             <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px"
                                 fill="#000000">
                                 <path d="M0 0h24v24H0z" fill="none" />
@@ -67,12 +65,11 @@
                             </svg>
                             <span>My Orders</span>
                         </button>
-                        <button mat-menu-item class="profile-g" style="padding-left: 0px;">
+                        <button mat-menu-item class="profile-g" style="padding-left: 0px;" routerLink="/dashboard/wishlist">
                             <img src="../../../assets/favourite.png" width="20px" height="20px">
                             <span>My Wishlist</span>
                         </button>
                     </mat-menu>
-                    <span fxLayoutAlign="center center" *ngIf="fullName!=(''||undefined||null)">{{fullName}}</span>
 
                 </button>
 
@@ -83,8 +80,8 @@
                         <span fxLayoutAlign="center center" >Cart</span>
                     </div>
                 </button> -->
-                <button mat-menu class="icons" mat-flat-button *ngIf="fullName==(''||undefined||null)"
-                    [matMenuTriggerFor]="noprofile">
+                <button mat-menu class="icons"
+                   routerLink="/dashboard/cart" >
                     <div fxLayout="column" fxLayoutAlign="center center">
                         <img src="../../../assets/supermarket.svg" style="margin: 0px 10px;" width="24px" height="24px">
                         <span fxLayoutAlign="center center" style="color:#FFFFFF">Cart</span>
