@@ -32,6 +32,8 @@ export class CartComponent {
 
   ngOnInit(): void {
     this.bookId = localStorage.getItem('bookId');
+    // this.fullName = localStorage.getItem('FullName');
+    // this.mobileNumber = localStorage.getItem('MobileNumber');
     this.getCartlist();
     this.getAllAddress();
   }

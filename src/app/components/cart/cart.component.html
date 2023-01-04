@@ -55,13 +55,7 @@
         </div>
 
         <div *ngFor="let address of addressList" style="margin-bottom: 10px;">
-          <div fxLayout="row" fxLayoutAlign="start center">
-            <input type="radio" class="addresstype" [name]="address" [id]="address.addressId" [(ngModel)]="addressId"
-              [value]="address.addressId">
-            <span><b> {{addressList.indexOf(address)+1}}{{address.type==1? ' . HOME' : address.type==2? ' . WORK' : ' . OTHER'}} </b></span>
-            <button mat-flat-button style="color:#A03037; margin-left: 20px;"
-              (click)="editAddress()" *ngIf="addressId==address.addressId">Edit</button>
-          </div>
+          
            
           <!-- <div fxLayout="column" style="width: 100%; margin-left:20px">
             <mat-label *ngIf="addressId!=address.addressId"><b>Address:</b></mat-label>
@@ -84,6 +78,15 @@
               </mat-form-field>
             </div>
           </div>
+
+          <div fxLayout="row" fxLayoutAlign="start center">
+            <input type="radio" class="addresstype" [name]="address" [id]="address.addressId" [(ngModel)]="addressId"
+              [value]="address.addressId">
+            <span><b> {{addressList.indexOf(address)+1}}{{address.type==1? ' . HOME' : address.type==2? ' . WORK' : ' . OTHER'}} </b></span>
+            <button mat-flat-button style="color:#A03037; margin-left: 20px;"
+              (click)="editAddress()" *ngIf="addressId==address.addressId">Edit</button>
+          </div>
+
           <mat-label *ngIf="addressId==address.addressId">Address : </mat-label>
           <textarea matInput placeholder="Enter your Address" class="textarea-address" [(ngModel)]="address.address"
             style="margin-top: 10px;" cdkTextareaAutosize cdkAutosizeMinRows="2" cdkAutosizeMaxRows="3" disabled
@@ -189,7 +192,7 @@
           </div>
         </div>
       </div>
-      <button mat-flat-button color="primary" (click)="addOrder()" style="margin-left: 500px;background-color: #A03037;">Checkout</button>
+      <button mat-flat-button color="primary" (click)="addOrder()" style="margin-left: 500px;background-color: #A03037;" routerLink="/dashboard/orderPlaced">Checkout</button>
     </div>
   </div>
 </div>

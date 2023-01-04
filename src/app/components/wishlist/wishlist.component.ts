@@ -10,6 +10,7 @@ export class WishlistComponent implements OnInit {
 
   bookId = localStorage.getItem('bookId');
   wishlist:any;
+  
  
   constructor(private wish: WishlistService) { }
 
