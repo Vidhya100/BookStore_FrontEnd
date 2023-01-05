@@ -22,4 +22,7 @@ export class OrdersComponent {
       this.orderlist = response.data;
     });
   }
+  getShortDate(date:any){
+    return date.split('T')[0]
+  }
 }
