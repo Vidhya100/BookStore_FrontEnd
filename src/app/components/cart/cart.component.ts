@@ -15,10 +15,12 @@ export class CartComponent {
   bookId:any;
   step: number = 0;
 
-  fullName: any;
-  mobileNumber: any;
+  userList:any;
+  Fullname: any;
+  MobileNumber: any;
   addressList: any;
   addressId = 0;
+  userId:any;
   addressObj: any;
   isAddEditAddress: boolean = false;
   edit =false;
@@ -32,10 +34,13 @@ export class CartComponent {
 
   ngOnInit(): void {
     this.bookId = localStorage.getItem('bookId');
+    this.userId = localStorage.getItem('UserId');
     // this.fullName = localStorage.getItem('FullName');
     // this.mobileNumber = localStorage.getItem('MobileNumber');
     this.getCartlist();
+    this.getUserData();
     this.getAllAddress();
+    
   }
 
    getCartlist() {
@@ -105,8 +110,8 @@ export class CartComponent {
     this.isAddEditAddress = true;
     this.addressObj = [];
     this.address = '';
-    this.fullName = '';
-    this.mobileNumber = '';
+    this.Fullname = '';
+    this.MobileNumber = '';
     this.city = '';
     this.state = '';
     this.addressType = '';
@@ -135,16 +140,28 @@ export class CartComponent {
 
   addAddress(){
     if(this.address && this.city && this.state && this.addressType != ''){
-      let reqData = {
+      let reqdata = {
         address: this.address,
         city: this.city,
         state: this.state,
-        type: Number(this.addressType)
+        type: Number(this.addressType),
+        Fullname: this.Fullname,
+        MobileNumber:Number(this.MobileNumber)
+
       }
-      this.address.addAddress(reqData).subscribe((response: any) => {
+      console.log(reqdata);
+      this.address.addAddress(reqdata).subscribe((response:any)=> {
         console.log("New Address Added successfully", response);
         this.getAllAddress();
       })
     }
+  }
+
+  getUserData()
+  {
+    this.addresss.getUserData().subscribe((response: any) => {
+      console.log(response.data);
+      this.userList = response.data;
+    })
   }
 }

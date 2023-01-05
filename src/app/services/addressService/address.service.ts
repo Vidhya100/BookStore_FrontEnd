@@ -20,14 +20,14 @@ export class AddressService {
     }
     return this.http.getService('/Address/Getalladdress', true, header);
   }
-  addAddress(reqData:any){
+  addAddress(reqdata:any){
     let header = {
       headers: new HttpHeaders({
         'Content-type': 'application/json',
         'Authorization': 'Bearer '+this.token
       })
     }
-    return this.http.postService('/Addres/AddAddress', reqData, true, header);
+    return this.http.postService('/Addres/AddAddress', reqdata, true, header);
   }
 
   updateAddress(reqData: any) {
@@ -39,4 +39,15 @@ export class AddressService {
     }
     return this.http.putService('/Address/UpdateAddress', reqData, true, header);
   }
+
+  getUserData() {
+    let header = {
+      headers: new HttpHeaders({
+        'Content-type': 'application/json',
+        'Authorization': 'Bearer '+this.token
+      })
+    }
+    return this.http.getService('/User/GetUserDetails', true, header);
+  }
+
 }

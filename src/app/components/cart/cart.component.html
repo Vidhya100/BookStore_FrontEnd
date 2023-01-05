@@ -55,7 +55,6 @@
         </div>
 
         <div *ngFor="let address of addressList" style="margin-bottom: 10px;">
-          
            
           <!-- <div fxLayout="column" style="width: 100%; margin-left:20px">
             <mat-label *ngIf="addressId!=address.addressId"><b>Address:</b></mat-label>
@@ -64,17 +63,39 @@
             <span *ngIf="addressId==address.addressId">{{address.city}}, {{address.state}}</span>
             <span *ngIf="addressId==address.addressId">{{mobileNumber}}</span>
           </div> -->
+
+          <!-- using getuserdetails
+          <div *ngFor="let user of userList" style="margin-bottom: 10px;">
+            <div fxLayout="row" fxLayoutAlign="space-between center" *ngIf="userId==user.UserId" >
+              <div fxLayout="column" style="width: 48%;">
+                <mat-label>FullName</mat-label>
+                <mat-form-field appearance="outline">
+                  <input matInput placeholder="FullName" [(ngModel)]="user.fullName" disabled>
+                </mat-form-field>
+              </div>
+              <div fxLayout="column" style="width: 48%;">
+                <mat-label>MobileNumber</mat-label>
+                <mat-form-field appearance="outline">
+                  <input matInput placeholder="MobileNumber" [(ngModel)]="user.mobileNumber" disabled>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+          <div *ngFor="let address of addressList" style="margin-bottom: 10px;">
+          
+          </div> -->
+
           <div fxLayout="row" fxLayoutAlign="space-between center" *ngIf="addressId==address.addressId" >
             <div fxLayout="column" style="width: 48%;">
               <mat-label>FullName</mat-label>
               <mat-form-field appearance="outline">
-                <input matInput placeholder="FullName" [(ngModel)]="fullName" disabled>
+                <input matInput placeholder="FullName" [(ngModel)]="address.fullname" disabled>
               </mat-form-field>
             </div>
             <div fxLayout="column" style="width: 48%;">
               <mat-label>MobileNumber</mat-label>
               <mat-form-field appearance="outline">
-                <input matInput placeholder="MobileNumber" [(ngModel)]="mobileNumber" disabled>
+                <input matInput placeholder="MobileNumber" [(ngModel)]="address.mobileNumber" disabled>
               </mat-form-field>
             </div>
           </div>
@@ -86,7 +107,7 @@
             <button mat-flat-button style="color:#A03037; margin-left: 20px;"
               (click)="editAddress()" *ngIf="addressId==address.addressId">Edit</button>
           </div>
-
+          
           <mat-label *ngIf="addressId==address.addressId">Address : </mat-label>
           <textarea matInput placeholder="Enter your Address" class="textarea-address" [(ngModel)]="address.address"
             style="margin-top: 10px;" cdkTextareaAutosize cdkAutosizeMinRows="2" cdkAutosizeMaxRows="3" disabled
@@ -108,6 +129,7 @@
           </div>
         </div>
       </div>
+
       <div class="addressbox" fxLayout="column" *ngIf="isAddEditAddress==true">
         <div fxLayout="row">
           <span><b>{{addressType==1? 'Address type : HOME' : addressType==2? 'Address type : WORK' : 'Address type : OTHER'}}</b></span>
@@ -117,13 +139,13 @@
           <div fxLayout="column" style="width: 48%;">
             <mat-label>FullName</mat-label>
             <mat-form-field appearance="outline">
-              <input matInput placeholder="FullName" [(ngModel)]="fullName">
+              <input matInput placeholder="FullName" [(ngModel)]="Fullname">
             </mat-form-field>
           </div>
           <div fxLayout="column" style="width: 48%;">
             <mat-label>MobileNumber</mat-label>
             <mat-form-field appearance="outline">
-              <input matInput placeholder="MobileNumber" [(ngModel)]="mobileNumber">
+              <input matInput placeholder="MobileNumber" [(ngModel)]="MobileNumber">
             </mat-form-field>
           </div>
         </div>
@@ -161,7 +183,7 @@
   
         <div fxLayoutAlign="space-between center">
           <button mat-stroked-button (click)="isAddEditAddress = false">Cancel</button>
-          <button mat-flat-button color="primary" type="submit" (click)="addAddress()" *ngIf="addressObj?.length == 0">Add
+          <button mat-flat-button color="primary" type="submit" (click)="addAddress()" >Add
             Address</button>
         </div>
       </div>
