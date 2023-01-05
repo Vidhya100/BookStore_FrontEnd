@@ -148,25 +148,38 @@ mat-error {
     height: 37px;
     width:292px;
   }
+  mat-form-field{
+    width: 100%;
+  }
 
-  // ::ng-deep .mat-form-field-flex {
-  //   height: 45px !important;
-  //   margin-top: 0px !important;
-  //   align-items: center !important;
-  // }
-//    ::ng-deep .mat-form-field-wrapper{
-//      padding: 0px;
-//    }
+   ::ng-deep .mat-mdc-text-field-wrapper {
+      height: 35px !important;
+      margin-top: 0px !important;
+     align-items: center !important;
+   }
+  // ::ng-deep .mat-form-field-wrapper{
+  //    padding: 0px;
+  //  }
 //   // input.mat-input-element {
 //   //   margin-bottom: 8px;
 //   // }
 
-//   .emaiId{
-//     height:35px;
-//     width:252px;
-//   }
+    // .emaiId{
+    //   height:55px;
+    //  width:252px;
+    //  border:1px solid black;
+    // }
 
 //   ::ng-deep .mat-mdc-text-field-wrapper {
 //     height: 35px;
 //     flex: 252px;
 // }
+
+// ::ng-deep  {
+//   height: 46px !important;   
+//   width: 100% !important;
+//   border: 1px solid black;}
+
+  // .formcontainer{
+  //   width:100%;
+  // }

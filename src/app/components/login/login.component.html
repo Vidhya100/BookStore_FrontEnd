@@ -17,12 +17,12 @@
             </div>
         </div>
 
-        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="formcontainer">
 
             <div class="emaiId" fxLayout="column" fxLayoutAlign="start start" >
                 <mat-label>Email Id</mat-label>
-                <mat-form-field appearance="outline">
-                    <input matInput type="email" formControlName="email" class="emailInput"  style="height:35px;width:252px;">
+                <mat-form-field appearance="outline" >
+                    <input matInput type="email" formControlName="email" class="emailInput"  >
                     <mat-error>Enter valid email</mat-error>
                 </mat-form-field>
             </div>
