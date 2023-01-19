@@ -1,14 +1,16 @@
 .layout{
-    padding-bottom: 20px;
-    padding-left: 12%;
-    padding-right: 12%;
-    margin-top: 5px;
+     bottom: 20px;
+    // padding-left: 12%;
+    // padding-right: 12%;
+    top: 5px;
     height: fit-content;
+    position:relative;
   }
   .count{
-    margin-top: 10px;
-    padding-left: 25px;
+    top: 10px;
+    left: 25px;
     border: 1px solid lightgray;
+    position: relative;
   }
   .cart-detail{
     margin-top: 10px;
@@ -134,3 +136,5 @@
 //   height: 24px;
   border-radius: 75%;
   }
+
+ 

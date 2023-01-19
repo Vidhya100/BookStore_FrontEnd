@@ -18,10 +18,8 @@ export class HomeComponent implements OnInit {
   }
 
   logOut() {
-    localStorage.removeItem("token");
-    localStorage.removeItem("name");
-    localStorage.removeItem('bookId');
-    localStorage.removeItem('mobile')
+    localStorage.removeItem("token");    
+    localStorage.removeItem('bookId');    
     console.log('Logout success');
     this.route.navigateByUrl('login');
   }

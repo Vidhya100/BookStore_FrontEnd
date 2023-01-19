@@ -9,14 +9,16 @@
     <mat-form-field appearance="outline" style="padding-top: 15px;">
       <mat-label>{{sortBy}}</mat-label>
       <mat-select>
-
-
+        <mat-option (click)="relevence()">Sort by relevence</mat-option>
+        <mat-option (click)="PriceLowToHigh()">Price -- Low to High</mat-option>
+        <mat-option (click)="PriceHighToLow()">Price -- High to low</mat-option>
+        <mat-option (click)="newestFirst()">Newest First</mat-option>
       </mat-select>
     </mat-form-field>
   </div>
 
   <div class="display-books" fxLayout="row" fxLayoutAlign="start start">
-    <mat-card class="book" *ngFor="let book of bookList">
+    <mat-card class="book" *ngFor="let book of bookList | pipe: searchWord">
       <div class="book-image" fxLayout="column" fxLayoutAlign="center center"
         [style.background]="book.BookQuantity==0? '#dee2e6' : '#F5F5F5'">
         <img [src]="book.bookImage" width="125px" height="170px">

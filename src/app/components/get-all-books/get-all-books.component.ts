@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BookService } from 'src/app/services/bookService/book.service';
+import { DataService } from 'src/app/services/dataService/data.service';
 
 @Component({
   selector: 'app-get-all-books',
@@ -15,14 +16,20 @@ export class GetAllBooksComponent implements OnInit {
   bookList:any;
   totalbooks:any;
   sortBy:any='Sort by relevance';
+  searchWord:any;
+  subscription:any;
+  message:any;
 
-  constructor(private book:BookService, private router: Router ){}
+  constructor(private book:BookService, private router: Router, private data: DataService){}
 
   ngOnInit(): void {
     this.getAllbooks();  
-   // this.data.incomingData.subscribe((response) => {
-      //this.searchbook = response;
-   // })  
+    this.subscription = this.data.currentData.subscribe((message: { data: any[]; }) => {
+      this.message = message;
+      console.log("display card search data======", message.data[0]);
+      this.searchWord=message.data[0]
+      // this.getAllNotes();
+    }) 
   }
   
   getAllbooks(){
@@ -40,5 +47,25 @@ export class GetAllBooksComponent implements OnInit {
       console.log(bookId);
       
       
+    }
+  
+    relevence(){  
+      this.bookList = this.bookList.sort((x: any, y: any) => x.bookId - y.bookId);
+      this.sortBy="Sort by relevence";
+    }
+  
+    PriceLowToHigh(){
+      this.bookList = this.bookList.sort((x: any, y: any) => x.discountPrice - y.discountPrice);
+      this.sortBy="Price -- Low to High";
+    }
+  
+    PriceHighToLow(){ 
+      this.bookList = this.bookList.sort((x: any, y: any) => y.discountPrice - x.discountPrice);
+      this.sortBy="Price -- High to low";
+    }
+  
+    newestFirst(){
+       this.bookList = this.bookList.sort((x: any, y: any) => y.bookId - x.bookId);
+       this.sortBy="Newest First";
     }
 }

@@ -31,6 +31,7 @@ import { WishlistComponent } from './components/wishlist/wishlist.component';
 import { MatButtonModule } from '@angular/material/button';
 import { OrderPlacedComponent } from './components/order-placed/order-placed.component';
 import { OrdersComponent } from './components/orders/orders.component';
+import { PipePipe } from './components/Pipe/pipe.pipe';
 
 
 
@@ -48,7 +49,8 @@ import { OrdersComponent } from './components/orders/orders.component';
     CartComponent,
     WishlistComponent,
     OrderPlacedComponent,
-    OrdersComponent
+    OrdersComponent,
+    PipePipe
     
   ],
   imports: [
